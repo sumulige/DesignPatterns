@@ -20,15 +20,26 @@ package singleton;
  */
 public class Mgr02 {
 
-    private static final Mgr02 INSTANCE;
+    //    private static final Mgr02 INSTANCE;
+    private final static Mgr02 INSTANCE;
 
-    static Mgr02{
-        INSTANCE  = new Mgr02();
+    static {
+        INSTANCE = new Mgr02();
     }
 
-    private static Mgr02 getInstance(){
+    private Mgr02() {
+    }
+
+    private static Mgr02 getInstance() {
 
         return INSTANCE;
+    }
+
+    public static void main(String[] args) {
+        Mgr02 mgr02 = Mgr02.getInstance();
+        Mgr02 mgr022 = Mgr02.getInstance();
+
+        System.out.println(mgr02 == mgr022);
     }
 
 
